@@ -1,0 +1,59 @@
+
+body {
+    background:
+           /* top, transparent black, faked with gradient */ 
+           linear-gradient(
+             rgba(0, 0, 0, 0.7), 
+             rgba(0, 0, 0, 0.7)
+           ),
+           /* bottom, image */
+           url("../images/background.webp");
+          
+
+
+}
+@media(min-width:501px) 
+{
+  .logo{
+    position: absolute;
+    left: 56%;
+    top: 40%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .logoimg{
+      width:100%;
+      max-width:60%; 
+  }
+} 
+
+@media(max-width:500px) 
+{
+  .logo{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .logoimg{
+      width:100%;
+      
+  }
+}
+.cards{
+  display: flex;
+  flex: 1;
+  overflow-x: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+#loadingHome{
+  position: absolute;
+  left: 45%;
+  bottom: 100px;
+
+  
+ 
+}
