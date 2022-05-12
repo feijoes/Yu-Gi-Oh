@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from './Card';
 const Cards = ({cards,loading, n, detail}) => {
+    console.log(cards,loading)
     if (!loading) return (<div className="spinner-border text-primary" id='loadingHome' role="status"></div>);
 
     const ncards = cards.sort(() => Math.random() - Math.random()).slice(0, n)
