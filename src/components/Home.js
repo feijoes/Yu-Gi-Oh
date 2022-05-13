@@ -3,7 +3,7 @@ import React,{ useContext }  from 'react';
 import '../static/css/App.css';
 import Cards from '../components/Cards';
 import { HomeContext } from '../context/HomeContext';
-import logo from "../static/images/background.webp"
+import logo from "../static/images/logo.png"
 const Home = () => {  
   const {loading, cards} = useContext(HomeContext);
   

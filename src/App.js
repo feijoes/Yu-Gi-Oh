@@ -4,6 +4,12 @@ import './static/css/App.css';
 import axios from "axios"
 import Home from './components/Home';
 import { HomeContext } from './context/HomeContext';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+
+} from "react-router-dom";
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [cards, setCards] = useState([]);
@@ -20,10 +26,13 @@ const App = () => {
       },[])
   return (
     <>
-    <HomeContext.Provider value={{cards,loading} }>
-    
-      <Home />
-    </HomeContext.Provider>
+    <Router>
+      <HomeContext.Provider value={{cards,loading} }>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </HomeContext.Provider>
+    </Router>
     </>
     )
 }
