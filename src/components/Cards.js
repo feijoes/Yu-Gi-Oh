@@ -9,7 +9,7 @@ const Cards = ({cards,loading, n, detail}) => {
                 {ncards && ncards.map((card)=>{
                     return <Card key={card.id}card={card} detail={detail} />
                 })}
-                {ncards.slice(0,30).map((card)=>{
+                {ncards.slice(0,25).map((card)=>{
                     return <Card key={card.id}card={card} detail={detail} />
                 })}
 
