@@ -84,18 +84,25 @@
   display: inline;
 }
 .imglevel{
-  width:30px;height:30px;
-  max-width:100px;
+  width:15px;
+  height:30px;
+  
   overflow: hidden;
   display: inline;
   border: none;  
 }
 .hide {
     display: none;
+    max-width: 35%;
   }
 
 .detailcard:hover + .hide {
   display: block;
   }
+.level{
+  display: flex;
+  position: absolute;
+  right: 10px;
+}
 
   
