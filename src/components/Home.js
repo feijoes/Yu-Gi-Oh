@@ -12,10 +12,10 @@ const Home = () => {
   return (
     <div className='relative'>
       <div className='logo'>
-        <img src={logo} className=" logoimg img-fluid" alt="logo" />
+        <img src={logo} className=" logoimg " alt="logo" />
         <div className='center'>
-        <Button />
-      </div>
+          <Button />
+        </div>
       </div>
       
       <Cards cards={cards} loading={loading} n="40" detail={false}/>

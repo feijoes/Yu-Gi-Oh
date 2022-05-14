@@ -60,10 +60,10 @@
 @media(max-width:500px) 
 {
   .card {
-    min-width: 65px;
+    min-width: 100px;
     width: inherit;
     height: inherit;
-    animation: primary 20s linear infinite;
+    animation: primary 30s linear infinite;
   }
   
   @keyframes primary {

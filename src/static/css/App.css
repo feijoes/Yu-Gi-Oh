@@ -25,6 +25,14 @@ body {
       width:100%;
       max-width:60%; 
   }
+  .center{
+    align-self:center;
+    position: absolute;
+    right: 59%;
+  
+   
+    padding: 10px;
+  }
 } 
 
 @media(max-width:500px) 
@@ -40,6 +48,7 @@ body {
       width:100%;
       
   }
+  
 }
 .cards{
   display: flex;
