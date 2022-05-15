@@ -7,7 +7,7 @@ body {
              rgba(0, 0, 0, 0.7)
            ),
            /* bottom, image */
-           url("../images/background.webp");
+           url("../images/other/background.webp");
           
 
 
@@ -62,9 +62,6 @@ body {
   position: absolute;
   left: 45%;
   bottom: 100px;
-
-  
- 
 }
 
 a:hover {
