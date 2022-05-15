@@ -1,12 +1,11 @@
 
-
 @media only screen and (min-width: 1200px) 
 {
   .card {
   min-width: 100px;
   width: inherit;
   height: inherit;
-  animation: primary 30s linear infinite;
+  animation: primary 20s linear infinite;
 
 }
 
@@ -63,7 +62,7 @@
     min-width: 100px;
     width: inherit;
     height: inherit;
-    animation: primary 30s linear infinite;
+    animation: primary 5s linear infinite;
   }
   
   @keyframes primary {
@@ -86,23 +85,33 @@
 .imglevel{
   width:15px;
   height:30px;
-  
-  overflow: hidden;
-  display: inline;
-  border: none;  
+  margin-left: 13px;
+  position: absolute;
+  top:-5px ;
 }
-.hide {
-    display: none;
-    max-width: 35%;
-  }
 
+.inline{
+  display: inline;
+}
 .detailcard:hover + .hide {
   display: block;
+  position: fixed;
+  top: 0;
+
   }
 .level{
   display: flex;
-  position: absolute;
-  right: 10px;
+  position: relative;
 }
-
-  
+.hide{
+  display: none;
+  max-width: 40%;
+  background-color: rgb(118, 117, 117);
+}
+.imgrank{
+  width:15px;
+  height:15px;
+  margin-left: 13px;
+  position: absolute;
+  top:3px ;
+}
