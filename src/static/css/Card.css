@@ -86,23 +86,31 @@
 .imglevel{
   width:15px;
   height:30px;
-  
-  overflow: hidden;
-  display: inline;
-  border: none;  
+  margin-left: 13px;
+  position: absolute;
+  top:-5px ;
 }
-.hide {
-    display: none;
-    max-width: 35%;
-  }
 
+.inline{
+  display: inline;
+}
 .detailcard:hover + .hide {
   display: block;
   }
 .level{
   display: flex;
-  position: absolute;
-  right: 10px;
-}
+  position: relative;
 
-  
+}
+.hide{
+  display: none;
+  max-width: 40%;
+  background-color: rgb(118, 117, 117);
+}
+.imgrank{
+  width:15px;
+  height:15px;
+  margin-left: 13px;
+  position: absolute;
+  top:3px ;
+}

@@ -15,7 +15,9 @@ const Cards = ({cards,loading, n, detail}) => {
             </div>
         </>)}
 
-    return <Card card={ncards[0]} detail={detail} />
+    return <><Card card={ncards[0]} detail={detail} />
+             <Card card={ncards[1]} detail={detail} />
+            </>
 }
 
 export default Cards

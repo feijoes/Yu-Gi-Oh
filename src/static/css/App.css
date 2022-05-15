@@ -12,6 +12,7 @@ body {
 
 
 }
+
 @media(min-width:501px) 
 {
   .logo{
@@ -54,3 +55,6 @@ body {
   left: 45%;
   bottom: 100px;
 }
+p, h1, h2, h3{ 
+  color: rgba(255, 255, 255, 0.8); 
+}  
