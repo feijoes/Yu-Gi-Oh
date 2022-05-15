@@ -1,5 +1,5 @@
 
-import React,{ useContext }  from 'react';
+import React, { useContext} from 'react';
 import '../static/css/App.css';
 import Cards from '../components/Cards';
 import { HomeContext } from '../context/HomeContext';
@@ -8,7 +8,6 @@ import logo from "../static/images/other/logo.png"
 
 const Home = () => {  
   const {loading, cards} = useContext(HomeContext);
- 
   return (
     <div className='relative'>
       <div className='logo'>
@@ -19,7 +18,8 @@ const Home = () => {
 
       </div>
 
-      <Cards cards={cards} loading={loading} n="40" detail={false}/>
+      <Cards cards={cards} loading={loading} n="40" detail={false} />
+
     </div>)
 
 
