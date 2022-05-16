@@ -18,7 +18,7 @@ const Home = () => {
 
       </div>
 
-      <Cards cards={cards} loading={loading} n="40" detail={false} />
+      <Cards cards={cards} loading={loading} n="40" detail={true} />
 
     </div>)
 

@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1200px) 
+@media only screen and (min-width: 501px) 
 {
   .card {
   min-width: 100px;
@@ -61,4 +61,27 @@
   margin-left: 13px;
   position: absolute;
   top:3px ;
+}
+
+
+.flipcard-enter {
+  transition: transform 0.10s;
+  transform: rotateY(0);
+  transform-origin: 20px;
+}
+.flipcard-enter-active {
+  transition: transform 0.10s;
+  transform: rotateY(0);
+  transform-origin: 20px;
+  
+}
+.flipcard-exit {
+  transform: rotateY(360deg);
+  transition: transform 0.10s;
+  transform-origin: 20px;
+}
+.flipcard-exit-active {
+  transform: rotateY(360deg);
+  transition: transform 0.1s;
+  transform-origin: 0px;
 }
