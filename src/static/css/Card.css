@@ -43,7 +43,8 @@
 .detailcard:hover + .hide {
   display: block;
   position: fixed;
-  top: 0;
+  bottom: 0;
+  right: 0;
 
   }
 .level{
@@ -65,24 +66,42 @@
 
 
 .flipcard-enter {
-  transition: transform 0.10s;
-  transform: rotateY(0);
+  transform: rotateY(180deg);
+  transition: transform 0.70s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transform-origin: 20px;
+  transform-style: preserve-3d;
 }
 .flipcard-enter-active {
-  transition: transform 0.10s;
-  transform: rotateY(160deg);
-  transform-origin: 20px;
-  
+  transform: rotateY(180deg);
+  transition: transform 0.7s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-origin: 0px;
+  transform-style: preserve-3d;
 }
 .flipcard-exit {
   transform: rotateY(0);
-  transition: transform 0.10s;
-
+  transition: transform 0.70s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transform-origin: 20px;
+  transform-style: preserve-3d;
 }
 .flipcard-exit-active {
-  transform: rotateY(360deg);
-  transition: transform 0.1s;
+  transform: rotateY(180deg);
+  transition: transform 0.7s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transform-origin: 0px;
+  transform-style: preserve-3d;
+}
+
+.detailImg{
+  max-width: 55%;
+  min-width: 55%;
+ position: absolute;
+ right: 20%; 
+ top: 2%;
 }

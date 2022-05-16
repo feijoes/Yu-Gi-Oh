@@ -7,11 +7,12 @@ export function CardsContext ({children}){
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([]);
   const [img, setImg] = useState(cardback);
- 
+  
     useEffect(() =>{
       const fetchCards = async () => {
         const res = await axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php");
         setCards(res.data.data);
+
         setLoading(false)
         
       }

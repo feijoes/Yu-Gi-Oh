@@ -10,8 +10,8 @@ const Cardback = ({img}) => {
 
   return (<>
   <CSSTransition  in={img === cardback} timeout={duration} classNames="flipcard">
-    <div>
-      <img  className="detrailcard"src={img} alt="cardback"/>
+    <div className='divdetailimg'>
+      <img  className="detailImg"src={img} alt="cardback"/>
     </div>
   </CSSTransition >
   </>
