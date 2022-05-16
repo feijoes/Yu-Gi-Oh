@@ -1,16 +1,15 @@
-import React, { useState , useMemo } from 'react'
+import React, { useContext,useMemo}  from 'react'
 import Card from './Card';
-import Cardback from './Cardback';
-import cardback from "../static/images/other/cardback.jfif"
 
-const Cards = ({cards,loading, n, detail}) => {
-    const [img, setImg] = useState(cardback);
+
+import { HomeContext } from '../context/HomeContext';
+const Cards = ({n ,detail}) => {
+    const {setImg,loading, cardback,cards} = useContext(HomeContext);
     const ncards = cards.sort(() => Math.random() - Math.random()).slice(0, n);
     // eslint-disable-next-line react-hooks/exhaustive-deps  
     const memocards = useMemo(()=> ncards,[])
-
     if (loading) return (<div className="spinner-border text-primary" id='loadingHome' role="status"></div>);
-    
+   
     
     
     if (!detail){
@@ -27,7 +26,7 @@ const Cards = ({cards,loading, n, detail}) => {
     return <>{memocards.map((card)=>{
                 return <Card key={card.id}card={card} detail={detail} set={setImg} img={cardback}/>
             })}
-            <Cardback img={img}/>
+            
             </>
 }
 

@@ -71,13 +71,14 @@
 }
 .flipcard-enter-active {
   transition: transform 0.10s;
-  transform: rotateY(0);
+  transform: rotateY(160deg);
   transform-origin: 20px;
   
 }
 .flipcard-exit {
-  transform: rotateY(360deg);
+  transform: rotateY(0);
   transition: transform 0.10s;
+
   transform-origin: 20px;
 }
 .flipcard-exit-active {

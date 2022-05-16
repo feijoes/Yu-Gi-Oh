@@ -1,9 +1,11 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import "../static/css/AllCards.css"
-
+import Cardback from './Cardback';
+import { HomeContext } from '../context/HomeContext';
+import Cards from './Cards';
 const AllCards = () => {
     const [show, setShow] = useState(false);
-
+    const {img} = useContext(HomeContext);
    const buttonHandler = () => {
     setShow(show => !show)
   }
@@ -23,10 +25,10 @@ const AllCards = () => {
                         </div>
                     </div>
                 </div>
-                <div className='container test'><h1>uhuy</h1></div>
+                <div className='container test'><Cards n="10" detail={true}/></div>
             </div>
             <div className='detail col-4'>
-                uhy
+                <Cardback img={img}/>
             </div>
             <div className='container filter row' style={{ display: show ? "block" : "none" }}>
                 <div className='col-sm-1 display check '>
