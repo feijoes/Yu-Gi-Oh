@@ -3,7 +3,7 @@ import "../static/css/AllCards.css"
 
 const AllCards = () => {
     const [show, setShow] = useState(false);
-   console.log(show);
+
    const buttonHandler = () => {
     setShow(show => !show)
   }
