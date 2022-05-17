@@ -18,7 +18,7 @@ const Home = () => {
 
       </div>
 
-      <Cards n= "20"detail={true} />
+      <Cards n= "40"detail={false} />
 
     </div>)
 
