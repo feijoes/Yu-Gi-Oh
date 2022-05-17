@@ -1,20 +1,12 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import level from '../../static/images/level/level.png';
 import rank from '../../static/images/level/rank/rank.png';
 import "../../static/css/Card.css";
-
+import { HomeContext } from '../../context/HomeContext';
 export const Monster = ({card}) => {
-
-
-  function importAll(r) {
-    let images = {};
-    // eslint-disable-next-line
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  }
-  
+  const {importAll} = useContext(HomeContext);
   const attribute = importAll(require.context('../../static/images/atributes', false, /\.(png|jpe?g|svg)$/));
-  const race = importAll(require.context('../../static/images/type/monster', false, /\.(png|jpe?g|svg||webp)$/));
+  const race = importAll(require.context('../../static/images/type/monster', true, /\.(png|jpe?g|svg||webp)$/));
 
   return (
     <>

@@ -105,3 +105,7 @@
  right: 20%; 
  top: 2%;
 }
+.trapimg{
+  max-width: 40px;
+  min-width: 40px;
+}
