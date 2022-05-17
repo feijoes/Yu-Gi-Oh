@@ -1,21 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import level from '../../static/images/level/level.png';
 import rank from '../../static/images/level/rank/rank.png';
 import "../../static/css/Card.css";
-
+import {HomeContext} from '../../context/HomeContext'
 export const Monster = ({card}) => {
+  const {importAll} = useContext(HomeContext)
 
 
-  function importAll(r) {
-    let images = {};
-    // eslint-disable-next-line
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  }
   
   const attribute = importAll(require.context('../../static/images/atributes', false, /\.(png|jpe?g|svg)$/));
-  const race = importAll(require.context('../../static/images/type/monster', false, /\.(png|jpe?g|svg||webp)$/));
-
+  const race = importAll(require.context('../../static/images/type/monster', true, /\.(png|jpe?g|svg||webp)$/));
+ console.log(card)
   return (
     <>
      <h1>{card.name}</h1>
@@ -24,6 +19,7 @@ export const Monster = ({card}) => {
           </div>
           <img src={attribute[card.attribute + ".png"]} alt={card.attribute}/>
           <img src={race[card.race + ".webp"]} alt={card.race}/>
+       
           <p>{card.race}</p>
           <p>{"ATK / " + card.atk} {(card.def >= 0) ? "DEF /" + card.def : (card.linkval && "LINK-" + card.linkval)}</p>
           <p>{card.desc}</p>

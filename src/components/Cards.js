@@ -4,7 +4,7 @@ import Card from './Card';
 import { HomeContext } from '../context/HomeContext';
 const Cards = ({n ,detail}) => {
     const {setImg,loading, cardback,cards} = useContext(HomeContext);
-    const ncards = cards.sort(() => Math.random() - Math.random()).slice(0, n);
+    const ncards = cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token').slice(0, n);
     // eslint-disable-next-line react-hooks/exhaustive-deps  
     const memocards = useMemo(()=> ncards,[cards]);
     if (loading) return (<div className="spinner-border text-primary" id='loadingHome' role="status"></div>);

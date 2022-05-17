@@ -7,7 +7,12 @@ export function CardsContext ({children}){
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([]);
   const [img, setImg] = useState(cardback);
-  
+  const importAll = (r) => {
+    let images = {};
+    // eslint-disable-next-line
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+  }
     useEffect(() =>{
       const fetchCards = async () => {
         const res = await axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php");
@@ -19,7 +24,7 @@ export function CardsContext ({children}){
       fetchCards();
       },[])
       return(
-      <HomeContext.Provider value={{cards,loading,img,setImg,cardback}}>
+      <HomeContext.Provider value={{cards,loading,img,setImg,cardback,importAll}}>
           {children}
       </HomeContext.Provider>)
 }
