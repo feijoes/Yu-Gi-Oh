@@ -1,11 +1,12 @@
-import React,{useState, useContext} from 'react'
+import React,{useState,useContext} from 'react'
 import "../static/css/AllCards.css"
-import Cardback from './Cardback';
-import { HomeContext } from '../context/HomeContext';
+import CardDetail from './CardDetail';
 import Cards from './Cards';
+import { HomeContext } from '../context/HomeContext';
 const AllCards = () => {
     const [show, setShow] = useState(false);
-    const {img} = useContext(HomeContext);
+    const {detailCard} = useContext(HomeContext)
+   
    const buttonHandler = () => {
     setShow(show => !show)
   }
@@ -28,16 +29,13 @@ const AllCards = () => {
                 <div className='container test'><Cards n="10" detail={true}/></div>
             </div>
             <div className='detail col-4'>
-                <Cardback img={img}/>
+            <CardDetail  card={detailCard}/>
             </div>
             <div className='container filter row' style={{ display: show ? "block" : "none" }}>
                 <div className='col-sm-1 display check '>
-                
-                
-
                 </div>
-
             </div>
+            
         </div>
         
     )
