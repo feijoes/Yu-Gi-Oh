@@ -10,7 +10,7 @@ console.log(card)
     <>
       <h1>{card.name}</h1>
       <div>
-        <img src={atributo} className='trapimg' alt={atributo} />
+        <img src={atributo} className='atripute' alt={atributo} />
         <img src={type[card.race + ".webp"]} alt={card.race}/>
         </div>
         <div>

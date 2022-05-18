@@ -7,7 +7,8 @@ export function CardsContext ({children}){
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([]);
   const [img, setImg] = useState(cardback);
-  function importAll(r) {
+
+  const importAll = (r) => {
     let images = {};
     // eslint-disable-next-line
     r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
