@@ -8,6 +8,8 @@ export function CardsContext ({children}){
   const [cards, setCards] = useState([]);
   const [img, setImg] = useState(cardback);
   const  [detailCard, setDetail] = useState({})
+  const [filter,setFilter] = useState({})
+
   const importAll = (r) => {
     let images = {};
     // eslint-disable-next-line
@@ -15,17 +17,22 @@ export function CardsContext ({children}){
     return images;
   }
     useEffect(() =>{
+      console.log(filter)
+      console.log(filter["race"])
+      console.log(Object.keys(filter).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(filter[k])}`).join('&'))
+      const link =  Object.keys(filter).length ? "https://db.ygoprodeck.com/api/v7/cardinfo.php?" + new URLSearchParams(filter).toString() : "https://db.ygoprodeck.com/api/v7/cardinfo.php"
+      console.log(link)
       const fetchCards = async () => {
-        const res = await axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php");
+        const res = await axios.get(link);
         setCards(res.data.data);
 
         setLoading(false)
-        
+       
       }
       fetchCards();
-      },[])
+      },[filter])
       return(
-      <HomeContext.Provider value={{cards,loading,img,setImg,cardback,importAll,setDetail,detailCard}}>
+      <HomeContext.Provider value={{cards,loading,img,setImg,cardback,importAll,setDetail,detailCard,setFilter,filter}}>
           {children}
       </HomeContext.Provider>)
 }

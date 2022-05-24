@@ -3,13 +3,16 @@ import "../static/css/AllCards.css"
 import CardDetail from './CardDetail';
 import Cards from './Cards';
 import { HomeContext } from '../context/HomeContext';
+import AllFilters from "./AllFilters"
 const AllCards = () => {
     const [show, setShow] = useState(false);
-    const {detailCard} = useContext(HomeContext)
+    const {detailCard,setFilter,filter} = useContext(HomeContext)
    
    const buttonHandler = () => {
     setShow(show => !show)
+    
   }
+  const race = {"atribute": "race", "values" : ['zombie', 'fiend', 'normal', 'rock', 'warrior', 'winged beast', 'spellcaster', 'beast', 'fairy', 'field', 'fish', 'beast-warrior', 'thunder', 'machine', 'sea serpent', 'aqua', 'plant', 'dragon', 'reptile', 'psychic', 'insect', 'pyro', 'dinosaur', 'wyrm', 'cyberse', 'ritual', 'divine-beast', 'cyverse']}
     return(  
         <div className='row'>
             
@@ -33,6 +36,7 @@ const AllCards = () => {
             </div>
             <div className='container filter row' style={{ display: show ? "block" : "none" }}>
                 <div className='col-sm-1 display check '>
+                    <AllFilters list={race} set={setFilter} filter={filter}/>
                 </div>
             </div>
             
