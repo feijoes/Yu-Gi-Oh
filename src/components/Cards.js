@@ -3,8 +3,10 @@ import Card from './Card';
 
 import { HomeContext } from '../context/HomeContext';
 const Cards = ({n ,detail}) => {
-    const {setImg,loading, cardback,cards} = useContext(HomeContext);
-    const ncards = cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' && obj.race ==='Counter').slice(0, n);
+    const {setImg,loading, cardback,cards,setDetail} = useContext(HomeContext);
+
+    const ncards = cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token').slice(0, n);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps  
     const memocards = useMemo(()=> ncards,[cards]);
     if (loading) return (<div className="spinner-border text-primary" id='loadingHome' role="status"></div>);
@@ -20,7 +22,7 @@ const Cards = ({n ,detail}) => {
         
 
     return <>{memocards.map((card)=>{
-                return <Card key={card.id}card={card} detail={detail} set={setImg} img={cardback}/>
+                return <Card key={card.id}card={card} detail={detail} setImg={setImg} setDetail={setDetail} img={cardback}/>
             })}
             
             </>

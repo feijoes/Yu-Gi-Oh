@@ -7,6 +7,7 @@ export function CardsContext ({children}){
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([]);
   const [img, setImg] = useState(cardback);
+  const  [detailCard, setDetail] = useState({})
 
   const importAll = (r) => {
     let images = {};
@@ -25,7 +26,7 @@ export function CardsContext ({children}){
       fetchCards();
       },[])
       return(
-      <HomeContext.Provider value={{cards,loading,img,setImg,cardback,importAll}}>
+      <HomeContext.Provider value={{cards,loading,img,setImg,cardback,importAll,setDetail,detailCard}}>
           {children}
       </HomeContext.Provider>)
 }

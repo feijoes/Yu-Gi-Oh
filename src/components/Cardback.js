@@ -6,7 +6,7 @@ import { CSSTransition  } from 'react-transition-group';
 const duration = 300;
 
 const Cardback = ({img}) => {
-  
+
 
   return (<>
   <CSSTransition  in={img === cardback} timeout={duration} classNames="flipcard">
