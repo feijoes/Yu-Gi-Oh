@@ -9,7 +9,6 @@ export const Monster = ({card}) => {
   const attribute = importAll(require.context('../../static/images/atributes', false, /\.(png|jpe?g|svg)$/));
   const race = importAll(require.context('../../static/images/type/monster', true, /\.(png|jpe?g|svg||webp)$/));
   const descStyle = card.desc.length <= 324? "text" : card.desc.length <= 689? "smalltext" : card.desc.length <= 860  ?"moresmalltext" : card.desc.length <= 950? "supersmalltext" :"megasmalltext"
-  console.log(card)
 
   return (
     <>
