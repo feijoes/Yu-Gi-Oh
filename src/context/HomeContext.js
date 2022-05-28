@@ -19,7 +19,7 @@ export function CardsContext ({children}){
   }
     useEffect(() =>{
       const link =  Object.keys(filter).length ? "https://db.ygoprodeck.com/api/v7/cardinfo.php?" + new URLSearchParams(filter).toString() : "https://db.ygoprodeck.com/api/v7/cardinfo.php"
-      console.log(link)
+
       const fetchCards = async () => {
         const res = await axios.get(link);
         setCards(res.data.data);

@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import "../static/css/filter.css"
 const Filter = ({atribute, value ,set,filter}) => {
-  console.log(atribute)
+
   const [Isclick, setCLick] = useState(false)
   
   const click = () =>{
     setCLick(!Isclick);
-    const a = {}
+    let a = {}
     if (!Isclick){
       if(!filter[atribute]){
           a[atribute] = [value]
@@ -16,14 +16,16 @@ const Filter = ({atribute, value ,set,filter}) => {
       }
       set(oldArray => ({...oldArray,...a}))
   }
-    else{set(oldArray => oldArray.filter((item)=>{return item !== value}))}
-   
+    else{
+      a = filter
+      a[atribute] = a[atribute].filter(item => {return item !== value});
+      if (a[atribute].length === 0 ) {delete a[atribute]} 
+      set({...a})
+      
+      }   
   }
-  return (
-    <div>
-      <button className={Isclick ? "button-on": "button-off"} onClick={click}>{value}</button>
-    </div>
-  )
+  return <button className={Isclick ? "button-on": "button-off"} onClick={click}>{value}</button>
+  
 }
 
 export default Filter
