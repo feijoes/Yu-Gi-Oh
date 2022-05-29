@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import "../static/css/filter.css"
 const Filter = ({atribute, value ,set,filter}) => {
+
   const [Isclick, setCLick] = useState(false)
   const click = () =>{
     setCLick(!Isclick);

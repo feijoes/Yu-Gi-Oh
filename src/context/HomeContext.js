@@ -4,11 +4,12 @@ import cardback from "../static/images/other/cardback.jfif"
 export const HomeContext = createContext();
 
 export function CardsContext ({children}){
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [cards, setCards] = useState([]);
   const [img, setImg] = useState(cardback);
   const  [detailCard, setDetail] = useState({})
   const [filter,setFilter] = useState({})
+
 
   const importAll = (r) => {
     let images = {};
@@ -17,6 +18,7 @@ export function CardsContext ({children}){
     return images;
   }
     useEffect(() =>{
+      setLoading(true)
       const link =  Object.keys(filter).length ? "https://db.ygoprodeck.com/api/v7/cardinfo.php?" + new URLSearchParams(filter).toString() : "https://db.ygoprodeck.com/api/v7/cardinfo.php"    
       const fetchCards = async () => {
         const res = await axios.get(link);
