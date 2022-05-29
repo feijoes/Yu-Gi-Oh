@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import "../static/css/filter.css"
 const Filter = ({atribute, value ,set,filter}) => {
   const [Isclick, setCLick] = useState(false)
-  
   const click = () =>{
     setCLick(!Isclick);
     let a = {}
@@ -13,15 +12,14 @@ const Filter = ({atribute, value ,set,filter}) => {
         filter[atribute].push(value);
         a[atribute] = filter[atribute];
       }
-      set(oldArray => ({...oldArray,...a}))
+      set(b => ({...b,...a}))
   }
     else{
       a = filter
       a[atribute] = a[atribute].filter(item => {return item !== value});
       if (a[atribute].length === 0 ) {delete a[atribute]} 
       set({...a})
-      
-      }   
+      }
   }
   return <button className={Isclick ? "button-on": "button-off"} onClick={click}>{value}</button>
   

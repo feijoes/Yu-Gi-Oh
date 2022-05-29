@@ -15,11 +15,8 @@ const Home = () => {
         <div className='center'>
           <Button />
         </div>
-
       </div>
-
       <Cards n= "40"detail={false} />
-
     </div>)
 
 

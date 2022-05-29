@@ -2,12 +2,12 @@ import React from 'react';
 import "../static/css/Card.css";
 
 
-const Card = ({card, detail,setImg,setDetail,img}) => {
- 
+const Card = ({sethover,card, detail,setImg,setDetail,img}) => {
+  console.log(sethover,'aaaa')
   if (!detail) return <div className='card'><img className='imgcard'src={card.card_images[0].image_url} alt={card.name}/></div>
   
   return (
-    <div className='inline front'>
+    <div onMouseOver={()=>sethover(true)} className='inline front'>
         <img className='detailcard imgcard'
         src={card.card_images[0].image_url} 
         alt={card.name} 

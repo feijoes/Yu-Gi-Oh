@@ -2,7 +2,8 @@ import React, {useMemo,useContext}  from 'react'
 import Card from './Card';
 
 import { HomeContext } from '../context/HomeContext';
-const Cards = ({n ,detail}) => {
+const Cards = ({sethover,n ,detail}) => {
+  
     const {setImg,loading, cardback,cards,setDetail} = useContext(HomeContext);
 
     const ncards = cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token').slice(0, n);
@@ -12,9 +13,9 @@ const Cards = ({n ,detail}) => {
     if (!detail){
         return (<><div className='cards'>
                 {memocards.map((card)=>{
-                    return <Card key={card.id}card={card} detail={detail} />
+                    return <Card key={card.id}card={card} detail={detail}  />
                 })}
-                {!detail && memocards.slice(0,25).map((card)=>{return <Card key={card.id}card={card} detail={detail} /> })}
+                {!detail && memocards.slice(0,25).map((card)=>{return <Card sethover={sethover} key={card.id}card={card} detail={detail} /> })}
 
             </div>
         </>)}
