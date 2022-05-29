@@ -5,7 +5,7 @@ import Cards from './Cards';
 import { HomeContext } from '../context/HomeContext';
 import AllFilters from "./AllFilters"
 import Search from './Search';
-
+import Sort from './Sort';
 const AllCards = () => {
     const [showfilter, setshowfilter] = useState(false);
     const {detailCard,setFilter,filter} = useContext(HomeContext)
@@ -49,8 +49,8 @@ const AllCards = () => {
                 <AllFilters list={atribute} set={setFilter} filter={filter}/>
                 <AllFilters list={type} set={setFilter} filter={filter}/>
             </div>
-            <div className='' style={{ display: sort ? "block" : "none" }}>
-                Gay
+            <div className='filter' style={{ display: sort ? "block" : "none" }}>
+                <Sort />
             </div>
             
         </div>

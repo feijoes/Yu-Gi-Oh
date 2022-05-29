@@ -9,6 +9,7 @@ export function CardsContext ({children}){
   const [img, setImg] = useState(cardback);
   const  [detailCard, setDetail] = useState({})
   const [filter,setFilter] = useState({})
+  const [reverse,setReverse] = useState(false)
 
 
   const importAll = (r) => {
@@ -28,7 +29,7 @@ export function CardsContext ({children}){
       fetchCards();
       },[filter])
       return(
-      <HomeContext.Provider value={{cards,loading,img,setImg,cardback,importAll,setDetail,detailCard,setFilter,filter}}>
+      <HomeContext.Provider value={{reverse,setReverse,cards,loading,img,setImg,cardback,importAll,setDetail,detailCard,setFilter,filter}}>
           {children}
       </HomeContext.Provider>)
 }

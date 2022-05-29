@@ -7,10 +7,11 @@ export const NoMonster = ({card}) => {
   const {importAll} = useContext(HomeContext);
   const race = importAll(require.context('../../static/images/type/nomonster', true, /\.(png|jpe?g|svg||webp)$/));
   const descStyle = card.desc.length <= 324? "text" : card.desc.length <= 689? "smalltext" : card.desc.length <= 860  ?"moresmalltext" : card.desc.length <= 950? "supersmalltext" :"megasmalltext"
-
+  const banlist_info = importAll(require.context('../../static/images/banlist', true, /\.(png|jpe?g|svg||webp)$/));
 
   return (
     <>
+    {card.banlist_info?.ban_tcg && <img className="banlist"src={banlist_info[card.banlist_info.ban_tcg + ".svg"]} alt={card.banlist_info.ban_tcg}></img>}
      <h1  className='responsive'>{card.name}</h1>
           <div className='level'>
             <div className='flex'>
