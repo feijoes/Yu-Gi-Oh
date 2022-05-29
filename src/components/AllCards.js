@@ -8,7 +8,7 @@ const AllCards = () => {
     const [show, setShow] = useState(false);
     const {detailCard,setFilter,filter} = useContext(HomeContext)
     const [hover, sethover] = useState(false);
-
+    const [n,setN] = useState(42)
    
    const buttonHandler = () => {
     setShow(show => !show)
@@ -32,8 +32,8 @@ const AllCards = () => {
                         </div>
                     </div>
                 </div>
-                <div className='container test test2 style-1'>
-                    <Cards n="100" sethover={sethover} detail={true}/>
+                <div className="container test test2 style-1" id='scrollcard'>
+                    <Cards n={n} setN={setN} sethover={sethover} detail={true}/>
                 </div>
             </div>
             <div className='detail col-4'>
