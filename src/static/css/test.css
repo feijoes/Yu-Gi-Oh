@@ -1,0 +1,17 @@
+.menu{
+    margin: 10px;
+    margin-left: 10px;
+ 
+}
+.header{
+    padding: 50px;
+    display: inline-flex;
+   
+
+}
+.titulo{
+    margin-left: 100px;  
+}
+.searchbar{
+    margin: auto;
+}

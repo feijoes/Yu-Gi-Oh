@@ -1,7 +1,7 @@
 import { createContext,useState,useEffect } from "react";
 import axios from "axios"
 import cardback from "../static/images/other/cardback.jfif"
-export const HomeContext = createContext();
+export const HomeContext = createContext([]);
 
 export function CardsContext ({children}){
   const [loading, setLoading] = useState(false);
