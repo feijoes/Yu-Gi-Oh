@@ -43,7 +43,6 @@
 }
 .filtros{
     padding: 10px;
-    
 }
 button.button4{
     display:inline-block;
@@ -60,7 +59,9 @@ button.button4{
     text-align:center;
     transition: all 0.2s;
     background-color:#f14e4e;
-    
+    }
+    .form{
+        margin-left: 5%;
     }
     button.button4:hover{
     border-color: rgba(255,255,255,1);

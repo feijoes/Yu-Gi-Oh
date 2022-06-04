@@ -29,6 +29,11 @@
   overflow: hidden;
   display: inline;
 }
+.banlist{
+  position: absolute;
+  width: 30px;
+  top: 0;
+}
 .imglevel{
   width: 26px;
   margin-top: -10px;

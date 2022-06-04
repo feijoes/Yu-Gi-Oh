@@ -1,50 +1,51 @@
-import React, {useContext,useEffect,useState}  from 'react'
+import React, {useContext,useEffect,useState,useLayoutEffect}  from 'react'
 import Card from './Card';
 import "../static/css/AllCards.css"
 import { HomeContext } from '../context/HomeContext';
-const Cards = ({sethover,n,setN ,detail}) => {
-    const {setImg,loading, cardback,cards,setDetail} = useContext(HomeContext);
+const Cards = ({sethover,n,setN }) => {
+    const {setImg,loading, cardback,cards,setDetail,filter,reverse} = useContext(HomeContext);
     const [ncards,setNcards] = useState([])
-    const [start,setStart] = useState(0)
     const [realcards,setRealcards] = useState(ncards)
     const load = <div className="spinner-border text-primary" id='loadingHome' role="status"></div>
+    useLayoutEffect(()=>{
     
-    useEffect(()=>{
-        setNcards(cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' ))
-    },[cards])
-    useEffect(()=>{
-        setRealcards(ncards.slice(start,n))
-    },[n,start,ncards])
-    const nextCard = (e)=>{
-        console.log(e.target.scrollTop)
-        console.log(e.innerHeight)
-        console.log(e.target.scrollHeight)
+        "sort" in filter?setNcards(cards.filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' )):setNcards(cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' ))
+    }, // eslint-disable-next-line 
+    [filter])
+
+    useEffect((p)=>{
+     
+        setRealcards(!reverse ?ncards.slice(0,n):ncards.reverse().slice(0,n));
+    },[n,ncards,reverse])
+    
+    const loadmore = ()=>{
+        
+        setN(n=>n+10)
     }
-    useEffect(()=>{
+    const nextCard = (e)=>{
+        
+        if(e.target.clientHeight + e.target.scrollTop >= (e.target.scrollHeight -2 )){
+           loadmore()
+           
+           
+        }
+    }
+   
+    useEffect(()=>{       
+        
         const scrollcard = document.getElementById('scrollcard')
-        scrollcard.addEventListener('scroll',nextCard);
-    }, [])
+        scrollcard.addEventListener('scroll',(e)=>{nextCard(e)});
+        
+    }, // eslint-disable-next-line 
+    [])
+    
     
     
     if (loading) return (load);
-    if (!detail){
-        return (<><div className='cards '>
-                {realcards.map((card)=>{
-                    return (
-                        <Card key={card.id}card={card} detail={detail} />)
-                })}
-                {realcards.slice(0,25).map((card)=>{return <Card key={card.id}card={card} detail={detail} /> })}
-
-            </div>
-        </>)}
-        
-
     return(
         <>{realcards.map((card)=>{
-                return <Card key={card.id}card={card} detail={detail} setImg={setImg} setDetail={setDetail} img={cardback} sethover={sethover}/>
+                return <Card key={card.id}  cardid={card.id}card={card} detail={true} setImg={setImg} setDetail={setDetail} img={cardback} sethover={sethover}/>
             })}
 </>
-    )
-}
-
+    )}
 export default Cards

@@ -1,10 +1,9 @@
 
 import React from 'react';
 import '../static/css/App.css';
-import Cards from '../components/Cards';
-
 import Button from './Button';
 import logo from "../static/images/other/logo.png"
+import Cards2 from './Cards2';
 
 const Home = () => {  
  
@@ -15,11 +14,8 @@ const Home = () => {
         <div className='center'>
           <Button />
         </div>
-
       </div>
-
-      <Cards n= "40"detail={false} />
-
+      <Cards2 n= "40"detail={false} />
     </div>)
 
 

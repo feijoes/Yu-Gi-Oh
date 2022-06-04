@@ -2,16 +2,18 @@ import React,{useContext} from 'react'
 import level from '../../static/images/level/level.png';
 import rank from '../../static/images/level/rank/rank.png';
 import "../../static/css/Card.css";
+import scale from  '../../static/images/other/scale.webp'
 import { HomeContext } from '../../context/HomeContext';
 export const Monster = ({card}) => {
   const {importAll} = useContext(HomeContext);
-
   const attribute = importAll(require.context('../../static/images/atributes', false, /\.(png|jpe?g|svg)$/));
   const race = importAll(require.context('../../static/images/type/monster', true, /\.(png|jpe?g|svg||webp)$/));
+  const banlist_info = importAll(require.context('../../static/images/banlist', true, /\.(png|jpe?g|svg||webp)$/));
   const descStyle = card.desc.length <= 324? "text" : card.desc.length <= 689? "smalltext" : card.desc.length <= 860  ?"moresmalltext" : card.desc.length <= 950? "supersmalltext" :"megasmalltext"
-
+  
   return (
     <>
+    {card.banlist_info?.ban_tcg && <img className="banlist"src={banlist_info[card.banlist_info.ban_tcg + ".svg"]} alt={card.banlist_info.ban_tcg}></img>}
      <h1  className='responsive'>{card.name}</h1>
           <div className='level'>
             <div className='flex'>
@@ -20,7 +22,7 @@ export const Monster = ({card}) => {
               <img src={race[card.race + ".webp"]} className='race' alt={card.race}/>
              </div>
              {card.scale && <div className='flex scale'>
-              <img src="https://www.masterduelmeta.com/_app/assets/scale-ab9833fd.webp" className='race' alt={"Scale"}/>
+              <img src={scale} className='race' alt={"Scale"}/>
               <p className='scalenumber'>{card.scale}</p>
                             </div>}
             </div>
