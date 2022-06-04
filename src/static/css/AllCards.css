@@ -84,9 +84,14 @@ button.button4{
   width: 50%;
   height: 50%;
   border-radius:2em;
-  border:double 
-  
-    
+  border:double ;    
+}
+.filter2{
+    text-align: center;
+}
+.line{
+    height: 0px;
+    border: solid 3px;
 }
 i{
     color: white;

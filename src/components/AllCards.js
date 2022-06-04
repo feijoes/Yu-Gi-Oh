@@ -51,10 +51,23 @@ const AllCards = () => {
             <div className='detail col-4'>
             <CardDetail  card={detailCard} hover={hover}/>
             </div>
-            <div className=' filter filters' style={{ display: showfilter ? "block" : "none" }}>
+            <div className='filter filters style-1 ' style={{ display: showfilter ? "block" : "none" }}>
+                <div className='filter2'>
+                    <h1>Race of monsters</h1>
+                    <hr className='line'/>
+                </div>
                 <AllFilters list={race} set={setFilter} filter={filter}/>
+                <div className='filter2'>
+                    <h1> Attribute of monster</h1>
+                    <hr className='line'/>
+                </div>
                 <AllFilters list={atribute} set={setFilter} filter={filter}/>
+                <div className='filter2'>
+                    <h1>Type of card</h1>
+                    <hr className='line'/>
+                </div>
                 <AllFilters list={type} set={setFilter} filter={filter}/>
+            
             </div>
             <div className='filter' style={{ display: sort ? "block" : "none" }}>
                 <Sort />
