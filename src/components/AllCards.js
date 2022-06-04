@@ -8,9 +8,10 @@ import Search from './Search';
 import Sort from './Sort';
 const AllCards = () => {
     const [showfilter, setshowfilter] = useState(false);
-    const {detailCard,setFilter,filter} = useContext(HomeContext)
+    const {detailCard,setFilter,filter} = useContext(HomeContext);
     const [hover, sethover] = useState(false);
-    const [sort,setSort] = useState(false)
+    const [sort,setSort] = useState(false);
+    console.log(1);
    const change = (set) => {
     set(show => !show)
   }
