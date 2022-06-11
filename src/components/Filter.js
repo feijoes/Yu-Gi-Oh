@@ -20,8 +20,7 @@ const Filter = ({atribute, value ,set,filter}) => {
       a[atribute] = a[atribute].filter(item => {return item !== value});
       if (a[atribute].length === 0 ) {delete a[atribute]} 
       set({...a})
-      }
-  }
+      }}
   return <button className={Isclick ? "button-on": "button-off"} onClick={click}>{value}</button>
   
 }

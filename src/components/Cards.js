@@ -7,12 +7,16 @@ const Cards = ({sethover,n,setN }) => {
     const [ncards,setNcards] = useState([])
     const [realcards,setRealcards] = useState(ncards)
     const load = <div className="spinner-border text-primary" id='loadingHome' role="status"></div>
+  
     useLayoutEffect(()=>{
-    
-        "sort" in filter?setNcards(cards.filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' )):setNcards(cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' ))
+        
+        if ((localStorage.getItem('cards') === [] || localStorage.getItem('cards') === null) || filter !== {})  localStorage.setItem("cards",JSON.stringify([...cards].sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' ).slice(0,1000)))
+    },[cards,filter])
+    useLayoutEffect(()=>{
+        "sort" in filter?setNcards(cards.filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' )):console.log(JSON.parse(localStorage.getItem("cards"))[0]);setNcards(JSON.parse(localStorage.getItem("cards")))
     }, // eslint-disable-next-line 
-    [filter])
-
+    [filter,cards])
+    
     useEffect((p)=>{
      
         setRealcards(!reverse ?ncards.slice(0,n):ncards.reverse().slice(0,n));
