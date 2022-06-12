@@ -3,12 +3,13 @@ import Card from './Card';
 import "../static/css/AllCards.css"
 import { HomeContext } from '../context/HomeContext';
 const Cards = ({sethover,n,setN }) => {
-    const {setImg,loading, cardback,cards,setDetail,filter,reverse} = useContext(HomeContext);
+    const {setImg,loading, cardback,cards,setDetail,filter,reverse,setFilter} = useContext(HomeContext);
     const [ncards,setNcards] = useState([])
     const [realcards,setRealcards] = useState(ncards)
     const load = <div className="spinner-border text-primary" id='loadingHome' role="status"></div>
+
+   
     useLayoutEffect(()=>{
-    
         "sort" in filter?setNcards(cards.filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' )):setNcards(cards.sort(() => Math.random() - Math.random()).filter(obj => obj.type !== 'Skill Card' && obj.type !== 'Token' ))
     }, // eslint-disable-next-line 
     [filter])

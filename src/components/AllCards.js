@@ -47,7 +47,7 @@ const AllCards = () => {
                 </div>
             </div>
             <div className='detail col-4'>
-            <CardDetail  card={detailCard} hover={hover}/>
+            <CardDetail  card={detailCard}hover={hover}/>
             </div>
             <div className=' filter filters' style={{ display: showfilter ? "block" : "none" }}>
                 <AllFilters list={race} set={setFilter} filter={filter}/>
