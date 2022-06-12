@@ -21,15 +21,14 @@ export function CardsContext ({children}){
     useEffect(() =>{
       setLoading(true)
       const link =  Object.keys(filter).length ? "https://db.ygoprodeck.com/api/v7/cardinfo.php?" + new URLSearchParams(filter).toString() : "https://db.ygoprodeck.com/api/v7/cardinfo.php"    
-    
       const fetchCards = async () => {
         const res = await axios.get(link);
-        
         setCards(res.data.data);
         setLoading(false)
       }
       fetchCards();
       },[filter])
+    
       return(
       <HomeContext.Provider value={{reverse,setReverse,cards,loading,img,setImg,cardback,importAll,setDetail,detailCard,setFilter,filter}}>
           {children}

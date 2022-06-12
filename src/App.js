@@ -16,7 +16,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Cards" element={<AllCards />} />
-          <Route path="/:name" element={<ClickCard />}/>
+          <Route path="*" element={<ClickCard />}/>
         </Routes>
       </CardsContext>
     </Router>

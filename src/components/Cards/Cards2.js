@@ -1,7 +1,7 @@
 import React, {useContext,useEffect,useState}  from 'react'
-import Card from './Card';
-import "../static/css/AllCards.css"
-import { HomeContext } from '../context/HomeContext';
+import Card from '../Card';
+import "../../static/css/AllCards.css"
+import { HomeContext } from '../../context/HomeContext';
 const Cards2 = ({n}) => {
     const {loading,cards,filter,reverse} = useContext(HomeContext);
     const [ncards,setNcards] = useState([])

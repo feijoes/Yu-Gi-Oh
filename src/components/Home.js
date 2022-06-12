@@ -3,7 +3,7 @@ import React from 'react';
 import '../static/css/App.css';
 import Button from './Button';
 import logo from "../static/images/other/logo.png"
-import Cards2 from './Cards2';
+import Cards2 from './Cards/Cards2';
 
 const Home = () => {  
  

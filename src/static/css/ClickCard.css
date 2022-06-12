@@ -1,0 +1,23 @@
+.principal{
+    width: 100%;
+}
+.Imgs{
+    display: flex;
+}
+.othersimgs{
+    margin-left: 4%;
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+.margin{
+    margin-left: 2%;
+    margin-top: 1%;
+}
+.justify{
+    text-align:center;
+    margin-top: 3%;
+}
+.block{
+    display: block;
+}

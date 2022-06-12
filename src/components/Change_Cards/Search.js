@@ -1,6 +1,6 @@
 import React,{useContext,useState,useEffect} from 'react'
 import { MDBCol} from "mdbreact";
-import { HomeContext } from '../context/HomeContext';
+import { HomeContext } from '../../context/HomeContext';
 const Search = () => {
   const {setFilter,filter} = useContext(HomeContext);
   const [input, setInput] = useState("")
@@ -9,8 +9,11 @@ const Search = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       let a = filter;
-      if (!input.length) {delete a["fname"]; setFilter(({...a}));}
-      else{  a["fname"] = input  
+  
+      if (input.length ===0 && 'fname' in a) {delete a["fname"];setFilter(({...a})) }
+      else if(input.length >=1 ){  
+        a["fname"] = input  
+  
       setFilter(({...a})) }}
       , 600);
     return () => clearTimeout(timer)
