@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import "../static/css/Card.css";
 import { Link } from 'react-router-dom';
-const Card = ({card, detail,setImg,setDetail,sethover,cardid,n}) => {
+const Card = ({card, detail,setImg,setDetail,sethover,cardid,n,setNumber}) => {
 
   const [load,setLoad] =useState(false)
 
@@ -21,8 +21,8 @@ const Card = ({card, detail,setImg,setDetail,sethover,cardid,n}) => {
     </Link>
     :
     <Link to={'/'+ card.name} >
-      <div className='inline front' id={cardid}  style={!load ? {display:"none"}:{}}>
-          <img onLoad={() => setLoad(true)} className='detailcard imgcard'src={card.card_images[0].image_url} alt={card.name} />
+      <div className='inline front' id={cardid} >
+          <img onLoad={() => {setNumber(e => e+1)}} className='detailcard imgcard'src={card.card_images[0].image_url} alt={card.name} />
       </div>
     </Link>
     

@@ -5,14 +5,29 @@ import { HomeContext } from '../context/HomeContext';
 import OthersImg from './OthersImg';
 import Not_found from "../static/images/other/Not-found.jpg"
 import CardsRelated from './Cards/CardsRelated';
+import Monster from './typecards/Monster';
+import NoMonster from './typecards/NoMonster';
 const ClickCard = () => {
     const {loading,cards,setFilter,filter} = useContext(HomeContext);
+    // eslint-disable-next-line
     const name = useParams()
   
     const [url,setUrl] = useState(false)
-    const card = cards.find(p => p.name === name["*"])
+    const [type,set] = useState(false)
+
+    const card = cards.find(p => p.name === window.location.href.replaceAll(window.location.origin,"").replaceAll('%20',' ').replaceAll("%22",'"').slice(1))
+   
+    useEffect(() => {
+     
+    
+      if(card){
+        set(card.type === "Spell Card" || card.type === "Trap Card" ? <NoMonster card={card} one={false}/> :<Monster card={card} one={true}/>) 
+      };
+      
+    }, [card])
+    
     useEffect(()=>{
-        if (card) if (card.archetype && !filter["archetype"]){  
+        if (card) if (card.archetype && (filter["archetype"] !== card.archetype || !filter["archetype"])){  
             let a = filter;
             a["archetype"] = card.archetype;
             setFilter({...a}) 
@@ -21,26 +36,35 @@ const ClickCard = () => {
     },[card])
     
     if (loading) return (<div className="spinner-border text-primary" id='loadingHome' role="status"></div>);
-    
+  
     return <>
     {card ?  
         <div className='container'>
             <div className='Imgs'>
-                <div className=''>
-                    <img className='size' src={!url ? card.card_images[0].image_url: url}  alt={card.name}/>
+                <div className='name'>
+                    <h1>{card.name}</h1>
+                    {card.card_images.slice(1).length && <h1 className='othersart'>Others Arts</h1>} 
+                    <hr className='line'/>
                 </div>
                 {card.card_images.slice(1).length && 
                     <div className='margin'>
-                        <h1>Others arts</h1>
-                        <div className="othersimgs">
-                            {card.card_images.slice(1).map((imagen)=>{
+                    
+                </div>}
+                <div className='principal'>
+                    <img className='size2' src={!url ?card.card_images[0].image_url: url}  alt={card.name}/>
+                    <div className='margin'>
+                        {type}
+                    </div>
+                    <div className="othersimgs">
+                        {card.card_images.slice(1).map((imagen)=>{
                                 return <OthersImg key={imagen.id} img={imagen.image_url} setUrl={setUrl} />
                             })}
-                        </div>
-                    </div>}
+                    </div>
+                </div>
+                
             </div>
-            <h1>{card.name}</h1>
-            <CardsRelated  not={card}/>
+            
+            {card.archetype && <CardsRelated  not={card}/>}
         </div>
         : 
         <div className='justify'>

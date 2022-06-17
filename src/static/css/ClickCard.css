@@ -1,18 +1,28 @@
 .principal{
     width: 100%;
+
 }
-.Imgs{
-    display: flex;
+.size2{
+    width: 30%;
 }
-.othersimgs{
-    margin-left: 4%;
-    margin-top: 1%;
-    display: grid;
-    grid-template-columns: 100px 1fr;
+.information{
+  padding-bottom: 2%;
+  
 }
+    .othersimgs{
+       
+        margin-top:-1%;
+        display: grid;
+        grid-template-columns: 100px 10fr;
+       
+        
+        ;
+    }
+
 .margin{
     margin-left: 2%;
     margin-top: 1%;
+    
 }
 .justify{
     text-align:center;
@@ -20,4 +30,29 @@
 }
 .block{
     display: block;
+}
+.title{
+   margin-top: 3%;
+
+   
+}
+.othersart{
+   margin-left: 73%;
+   top: 3%;
+   position: absolute;
+}
+.name{
+
+    text-align: center;
+}
+.line{
+   margin-left: 2%;
+    width: 81%;
+    border: solid 3px;
+}
+.principal{
+    display: flex;
+}
+.text{
+  
 }
