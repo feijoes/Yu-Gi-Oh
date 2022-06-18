@@ -9,6 +9,7 @@ export const Monster = ({card,one}) => {
   const attribute = importAll(require.context('../../static/images/atributes', false, /\.(png|jpe?g|svg)$/));
   const race = importAll(require.context('../../static/images/type/monster', true, /\.(png|jpe?g|svg||webp)$/));
   const banlist_info = importAll(require.context('../../static/images/banlist', true, /\.(png|jpe?g|svg||webp)$/));
+  console.log(card.attribute)
   const descStyle = card.desc.length <= 324? "text" : card.desc.length <= 689? "smalltext" : card.desc.length <= 860  ?"moresmalltext" : card.desc.length <= 950? "supersmalltext" :"megasmalltext"
   if(!one){
   return (
@@ -40,7 +41,7 @@ export const Monster = ({card,one}) => {
     </>
   )}
   return (
-    <>
+    <div className='letra'>
     {card.banlist_info?.ban_tcg && <img className="banlist"src={banlist_info[card.banlist_info.ban_tcg + ".svg"]} alt={card.banlist_info.ban_tcg}></img>}
           <div className='level'>
             <div className='flex'>
@@ -64,7 +65,7 @@ export const Monster = ({card,one}) => {
           <p> [ {card.race}{card.type !== "Normal Monster"? card.type.split(" ").map((type)=>{return type !== "Normal" && type !== "Monster" ? " / "+ type : null }): null}  {!card.type.includes("Effect") && !card.type.includes("Normal") &&" / Effect"} ]</p>
           <p className='closer'>{"ATK / " + card.atk} {(card.def >= 0) ? "DEF /" + card.def : (card.linkval && "LINK-" + card.linkval)}</p>
           <p className={descStyle + " closer"}>{card.desc.replace("-".repeat(40),"\n")}</p>
-    </>
+    </div>
   )
   
 }

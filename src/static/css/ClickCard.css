@@ -53,6 +53,9 @@
 .principal{
     display: flex;
 }
-.text{
-  
+.Imgs{
+    padding-bottom: 3%;
+}
+.text2{
+    text-align: center;
 }

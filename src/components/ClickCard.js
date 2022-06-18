@@ -21,7 +21,7 @@ const ClickCard = () => {
      
     
       if(card){
-        set(card.type === "Spell Card" || card.type === "Trap Card" ? <NoMonster card={card} one={false}/> :<Monster card={card} one={true}/>) 
+        set(card.type === "Spell Card" || card.type === "Trap Card" ? <NoMonster card={card} one={true}/> :<Monster card={card} one={true}/>) 
       };
       
     }, [card])
@@ -43,10 +43,10 @@ const ClickCard = () => {
             <div className='Imgs'>
                 <div className='name'>
                     <h1>{card.name}</h1>
-                    {card.card_images.slice(1).length && <h1 className='othersart'>Others Arts</h1>} 
+                    {card.card_images.slice(1).length >0 && <h1 className='othersart'>Others Arts</h1>} 
                     <hr className='line'/>
                 </div>
-                {card.card_images.slice(1).length && 
+                {card.card_images.slice(1).length  >0 && 
                     <div className='margin'>
                     
                 </div>}
@@ -63,7 +63,7 @@ const ClickCard = () => {
                 </div>
                 
             </div>
-            
+            {card.archetype && <h1 className='text2'>Related cards:</h1>}
             {card.archetype && <CardsRelated  not={card}/>}
         </div>
         : 
