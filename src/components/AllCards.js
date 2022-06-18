@@ -50,6 +50,7 @@ const AllCards = () => {
             <CardDetail  card={detailCard}hover={hover}/>
             </div>
             <div className='filter filters style-1 ' style={{ display: showfilter ? "block" : "none" }}>
+                <button  className="button4" onClick={() => change(setshowfilter)}>X</button>
                 <div className='filter2'>
                     <h1>Race of monsters</h1>
                     <hr className='line'/>
@@ -65,9 +66,10 @@ const AllCards = () => {
                     <hr className='line'/>
                 </div>
                 <AllFilters list={type} set={setFilter} filter={filter}/>
-            
+                
             </div>
             <div className='filter' style={{ display: sort ? "block" : "none" }}>
+            <button  className="button4" onClick={() => change(setSort)}>X</button>
                 <AllSort />
             </div>
             
