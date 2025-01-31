@@ -2,7 +2,8 @@ import React,{useContext} from 'react'
 import "../../static/css/Card.css";
 import { HomeContext } from '../../context/HomeContext';
 import Spell from '../../static/images/atributes/SPELL.png';
-import Trap from '../../static/images/atributes/TRAP.png';
+import Trap from "../static/images/atributes/TRAP.png"; 
+
 export const NoMonster = ({card,one}) => {
   const {importAll} = useContext(HomeContext);
   const race = importAll(require.context('../../static/images/type/nomonster', true, /\.(png|jpe?g|svg||webp)$/));
